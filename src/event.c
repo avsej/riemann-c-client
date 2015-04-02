@@ -1,3 +1,5 @@
+#include <riemann/_config.h>
+
 #include <stdlib.h>
 
 #if RIEMANN_HAVE_INTTYPES_H
@@ -7,7 +9,6 @@
 #include <time.h>
 #include <string.h>
 
-#include <riemann/_config.h>
 #include <riemann/attribute.h>
 #include <riemann/event.h>
 
