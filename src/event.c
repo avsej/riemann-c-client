@@ -59,8 +59,17 @@ void riemann_event_free(riemann_event_t *e)
 
         if (e->n_attributes > 0) {
                 int i = 0;
-                for (i = 0; i < e->n_attributes; i++) 
+                for (i = 0; i < e->n_attributes; i++) {
+			free(e->attributes[i]->key);
+			e->attributes[i]->key = NULL;
+
+			free(e->attributes[i]->value);
+			e->attributes[i]->value = NULL;
+
                         free(e->attributes[i]);
+			e->attributes[i] = NULL;
+		}
+                free(e->attributes);
                 e->attributes = NULL;
                 e->n_attributes = 0;
         }
